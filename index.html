@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STACKLY – Luxury Online Fashion & Clothing Boutique</title>
+  <meta name="description" content="Discover Stackly - a premium online fashion & clothing boutique. Bespoke tailoring, contemporary haute couture, fluid silhouettes, and luxury apparel." />
+  
+  <!-- Favicon using existing original Stackly logo (WebP) -->
+  <link rel="icon" type="image/webp" href="assets/stackly_066.webp" />
+
+  <!-- Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 Icons (Free CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="loading-locked">
+
+  <!-- =========================================================================
+       1. UNIQUE FASHION PRELOADER ANIMATION
+       Stylish bespoke clothing button & dual fabric panels unbuttoning transition
+       ========================================================================= -->
+  <div id="preloader" class="preloader" aria-label="Loading Stackly Atelier">
+    <!-- Split Fabric Curtains (Part left & right when unbuttoned) -->
+    <div class="fabric-panel left"></div>
+    <div class="fabric-panel right"></div>
+
+    <!-- Central Bespoke Shirt Button Stage -->
+    <div class="preloader-content">
+      <div class="button-stage">
+        <!-- Vertical Tailor Seam Behind Button -->
+        <div class="vertical-seam"></div>
+
+        <!-- Pearlescent Luxury Shirt Button with 4 holes & Cross Stitches -->
+        <div class="bespoke-button" id="bespokeButton">
+          <div class="button-inner-rim">
+            <div class="button-hole hole-top-left"></div>
+            <div class="button-hole hole-top-right"></div>
+            <div class="button-hole hole-bottom-left"></div>
+            <div class="button-hole hole-bottom-right"></div>
+            <svg class="stitch-svg" viewBox="0 0 60 60">
+              <line class="thread-line thread-cross-1" x1="20" y1="20" x2="40" y2="40" />
+              <line class="thread-line thread-cross-2" x1="40" y1="20" x2="20" y2="40" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="preloader-brand">STACKLY</div>
+      <div class="preloader-tagline">UNVEILING THE ATELIER</div>
+    </div>
+  </div>
+
+  <!-- Noscript Fallback: ensures site is immediately visible if JS is disabled -->
+  <noscript>
+    <style>
+      #preloader { display: none !important; }
+      body.loading-locked { overflow: auto !important; height: auto !important; }
+    </style>
+  </noscript>
+
+  <!-- =========================================================================
+       2. TOP ANNOUNCEMENT BAR
+       ========================================================================= -->
+  <div class="announcement-bar">
+    <span>✦ COMPLIMENTARY WORLDWIDE COURIER DELIVERY ON ORDERS OVER $150 • USE CODE <strong>STACKLY30</strong> FOR 30% OFF ✦</span>
+  </div>
+
+  <!-- =========================================================================
+       3. HEADER & STICKY NAVBAR
+       ========================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <!-- Original Stackly Logo from Existing Assets Folder -->
+      <a href="#hero" class="nav-brand" aria-label="Stackly Home">
+        <img src="assets/stackly_066.webp" alt="Stackly Luxury Fashion Boutique" />
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#new-arrivals" class="nav-link">New Arrivals</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#trending" class="nav-link">Trending</a>
+        <a href="#collection" class="nav-link">Best Sellers</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Nav Action Icons (Wishlist, Cart & Mobile Toggle) -->
+      <div class="nav-actions">
+        <!-- Wishlist Icon with Dynamic Badge -->
+        <button class="action-btn" id="wishlistNavBtn" aria-label="View Wishlist" title="View Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count" id="wishlistCountBadge">0</span>
+        </button>
+
+        <!-- Shopping Cart Icon with Dynamic Badge -->
+        <button class="action-btn" id="cartNavBtn" aria-label="View Shopping Bag" title="View Shopping Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge-count" id="cartCountBadge">0</span>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-links">
+      <a href="#hero" class="mobile-link active">Home</a>
+      <a href="#new-arrivals" class="mobile-link">New Arrivals</a>
+      <a href="#categories" class="mobile-link">Categories</a>
+      <a href="#trending" class="mobile-link">Trending</a>
+      <a href="#collection" class="mobile-link">Best Sellers</a>
+      <a href="#contact" class="mobile-link">Contact Us</a>
+    </div>
+    <div class="mobile-footer">
+      <div class="mobile-contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>742 Fifth Ave, New York</span>
+      </div>
+      <div class="mobile-contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <span>+1 (800) 782-2559</span>
+      </div>
+      <div class="mobile-contact-item">
+        <i class="fa-solid fa-envelope"></i>
+        <span>concierge@stacklyboutique.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- =========================================================================
+       4. HERO SECTION – FASHION BANNER WITH LIVE 5-IMAGE BACKGROUND RUNNER (2s GAP)
+       ========================================================================= -->
+  <section class="hero-section" id="hero">
+    <!-- 5 High-Quality Fashion Background Images (Live Continuous 2s Runner) -->
+    <div class="hero-bg-slider" id="heroBgSlider">
+      <div class="hero-bg-slide active" style="background-image: url('assets/hero-bg-1.webp');" data-index="0"></div>
+      <div class="hero-bg-slide" style="background-image: url('assets/hero-bg-2.webp');" data-index="1"></div>
+      <div class="hero-bg-slide" style="background-image: url('assets/hero-bg-3.webp');" data-index="2"></div>
+      <div class="hero-bg-slide" style="background-image: url('assets/hero-bg-4.webp');" data-index="3"></div>
+      <div class="hero-bg-slide" style="background-image: url('assets/hero-bg-5.webp');" data-index="4"></div>
+      <!-- Soft ambient gradient scrim ensuring images are clearly visible while typography is sharp -->
+      <div class="hero-bg-overlay"></div>
+    </div>
+
+    <div class="container hero-container-relative">
+      <div class="hero-grid">
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <span class="hero-badge">
+            <i class="fa-solid fa-sparkles"></i> HAUTE COUTURE & READY-TO-WEAR 2026
+          </span>
+          <h1 class="hero-title">
+            Modern Elegance, <span>Redefined</span> For You.
+          </h1>
+          <p class="hero-desc">
+            Discover our meticulously curated collection of artisanal tailoring, fluid evening silhouettes, and timeless luxury essentials designed to inspire confidence and turn heads.
+          </p>
+          <div class="hero-cta">
+            <a href="#collection" class="btn btn-primary">
+              <span>Explore Collection</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#new-arrivals" class="btn btn-secondary">
+              <span>Shop New Arrivals</span>
+            </a>
+          </div>
+          <!-- Hero Boutique Stats -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>2.5k<span>+</span></h4>
+              <p>Curated Styles</p>
+            </div>
+            <div class="stat-item">
+              <h4>4.9<span>★</span></h4>
+              <p>12k+ Discerning Clients</p>
+            </div>
+            <div class="stat-item">
+              <h4>100<span>%</span></h4>
+              <p>Silk & Linen Craft</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Display (WebP Image & Floating Elements) -->
+        <div class="hero-visual">
+          <div class="hero-image-wrap">
+            <img id="heroVisualImg" src="assets/hero-bg-1.webp" alt="High Fashion Model wearing Stackly luxury couture" />
+          </div>
+
+          <!-- Floating Luxury Badges -->
+          <div class="floating-card card-top">
+            <div class="floating-icon">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <div class="floating-text">
+              <h5>Spring / Summer '26</h5>
+              <p>Runway Exclusive</p>
+            </div>
+          </div>
+
+          <div class="floating-card card-bottom">
+            <div class="floating-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="floating-text">
+              <h5>Bespoke Atelier</h5>
+              <p>Master Handcrafting</p>
+            </div>
+          </div>
+
+          <!-- Live 2-Second Slider Status Pill -->
+          <div class="hero-slide-counter" id="heroSlideCounter">
+            <div class="hero-live-pill">
+              <span class="dot"></span>
+              <span>LIVE</span>
+            </div>
+            <span class="hero-slide-num" id="heroSlideNumber">01 / 05</span>
+            <div class="hero-slide-dots" id="heroSlideDots">
+              <span class="hero-dot active" data-slide="0" title="Slide 1"></span>
+              <span class="hero-dot" data-slide="1" title="Slide 2"></span>
+              <span class="hero-dot" data-slide="2" title="Slide 3"></span>
+              <span class="hero-dot" data-slide="3" title="Slide 4"></span>
+              <span class="hero-dot" data-slide="4" title="Slide 5"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. FEATURED CATEGORIES
+       Clicking a category filters products dynamically via API and smooth scrolls
+       ========================================================================= -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">CURATED ATELIER</span>
+        <h2 class="section-title">Explore By Category</h2>
+        <p class="section-subtitle">
+          From sculptural gowns to razor-sharp tailoring and signature fragrances, immerse yourself in our signature universes.
+        </p>
+        <div class="categories-action-wrap">
+          <button class="arrange-btn" id="arrangeCategoriesBtn" title="Rotate & Arrange to Position">
+            <i class="fa-solid fa-arrows-rotate"></i> Rotate &amp; Arrange
+          </button>
+        </div>
+      </div>
+
+      <div class="categories-grid arranging" id="categoriesGrid">
+        <!-- 1. Women's Fashion -->
+        <div class="category-card" data-category="women" data-card-idx="1" title="Explore Women's Fashion">
+          <img src="assets/category-women.webp" alt="Women's Haute Couture Fashion" loading="lazy" />
+          <div class="category-overlay">
+            <span class="category-tag">Collection</span>
+            <h3 class="category-title">Women's Fashion</h3>
+            <p class="category-subtitle">Silk Gowns, Blazers & Evening Wear</p>
+            <span class="category-link">Shop Women's &rarr;</span>
+          </div>
+        </div>
+
+        <!-- 2. Men's Fashion -->
+        <div class="category-card" data-category="men" data-card-idx="2" title="Explore Men's Fashion">
+          <img src="assets/category-men.webp" alt="Men's Tailored Fashion" loading="lazy" />
+          <div class="category-overlay">
+            <span class="category-tag">Collection</span>
+            <h3 class="category-title">Men's Fashion</h3>
+            <p class="category-subtitle">Tailored Suits, Shirts & Jackets</p>
+            <span class="category-link">Shop Men's &rarr;</span>
+          </div>
+        </div>
+
+        <!-- 3. Luxury Accessories -->
+        <div class="category-card" data-category="accessories" data-card-idx="3" title="Explore Luxury Accessories">
+          <img src="assets/category-accessories.webp" alt="Artisanal Handbags and Accessories" loading="lazy" />
+          <div class="category-overlay">
+            <span class="category-tag">Collection</span>
+            <h3 class="category-title">Accessories & Bags</h3>
+            <p class="category-subtitle">Artisanal Leather, Watches & Eyewear</p>
+            <span class="category-link">Shop Accessories &rarr;</span>
+          </div>
+        </div>
+
+        <!-- 4. Beauty & Fragrance -->
+        <div class="category-card" data-category="beauty" data-card-idx="4" title="Explore Beauty & Fragrance">
+          <img src="assets/category-beauty.webp" alt="Luxury Fragrances & Cosmetics" loading="lazy" />
+          <div class="category-overlay">
+            <span class="category-tag">Collection</span>
+            <h3 class="category-title">Beauty & Fragrance</h3>
+            <p class="category-subtitle">Signature Scents & Haute Skincare</p>
+            <span class="category-link">Shop Beauty &rarr;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. NEW ARRIVALS (8 IMAGES SHUFFLE & ARRANGE SMOOTHLY)
+       ========================================================================= -->
+  <section class="products-section" id="new-arrivals">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">JUST LANDED</span>
+        <h2 class="section-title">New Arrivals</h2>
+        <p class="section-subtitle">
+          Fresh from our design atelier. Discover the newest silhouettes, luxurious textures, and contemporary cuts of the season.
+        </p>
+        <div class="categories-action-wrap">
+          <button class="arrange-btn" id="shuffleNewArrivalsBtn" title="Shuffle & Arrange New Arrivals">
+            <i class="fa-solid fa-shuffle"></i> Shuffle &amp; Arrange
+          </button>
+        </div>
+      </div>
+
+      <!-- New Arrivals Dynamic Grid with 8 Shuffling Cards -->
+      <div class="product-grid shuffling" id="newArrivalsGrid">
+        <!-- Populated via JavaScript Fetch API with 8 Cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. TRENDING PRODUCTS (Distinct Top-Rated Selection)
+       ========================================================================= -->
+  <section class="products-section alt-bg" id="trending">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">MOST COVETED</span>
+        <h2 class="section-title">Trending This Season</h2>
+        <p class="section-subtitle">
+          The pieces capturing the spotlight right now, hand-selected by our stylists and favored by our global clientele.
+        </p>
+      </div>
+
+      <!-- Trending Dynamic Grid -->
+      <div class="product-grid" id="trendingGrid">
+        <!-- Populated via JavaScript Fetch API -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8 & 9. BEST SELLERS / PRODUCT COLLECTION (MANDATORY API INTEGRATION)
+       Search, Category Filter Tabs, Price/Rating Sorting, Skeletons, Error Retry
+       ========================================================================= -->
+  <section class="collection-section" id="collection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">THE STACKLY CATALOG</span>
+        <h2 class="section-title">Best Sellers & Boutique Collection</h2>
+        <p class="section-subtitle">
+          Immerse yourself in our complete wardrobe catalog. Search by name, filter by sartorial category, or sort by price and rating.
+        </p>
+        <div class="categories-action-wrap">
+          <button class="arrange-btn" id="arrangeCollectionBtn" title="Fade & Arrange Boutique Collection">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Fade &amp; Arrange
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive Discovery Toolbar -->
+      <div class="collection-toolbar">
+        <div class="toolbar-top-row">
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-category="all">All Pieces</button>
+            <button class="filter-tab" data-category="women">Women's Fashion</button>
+            <button class="filter-tab" data-category="men">Men's Fashion</button>
+            <button class="filter-tab" data-category="accessories">Accessories & Bags</button>
+            <button class="filter-tab" data-category="beauty">Fragrance & Beauty</button>
+          </div>
+
+          <!-- Controls: Live Search & Sort Dropdown -->
+          <div class="toolbar-controls">
+            <!-- Search Box -->
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="collectionSearch" class="search-input" placeholder="Search clothes, bags, scents..." aria-label="Search products" />
+              <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <!-- Sort By Dropdown -->
+            <div class="sort-box">
+              <select id="collectionSort" aria-label="Sort products">
+                <option value="featured">Sort: Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+                <option value="name">Name: A to Z</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Count & Status -->
+        <div class="toolbar-bottom-row">
+          <span id="collectionCount">Loading pieces from atelier...</span>
+          <span class="active-filter-indicator">✓ Live API Synced</span>
+        </div>
+      </div>
+
+      <!-- Skeleton Loading State (Displayed while fetching from DummyJSON) -->
+      <div class="product-grid" id="collectionSkeleton">
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text short"></div><div class="skeleton skeleton-text"></div><div class="skeleton skeleton-text med"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text short"></div><div class="skeleton skeleton-text"></div><div class="skeleton skeleton-text med"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text short"></div><div class="skeleton skeleton-text"></div><div class="skeleton skeleton-text med"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text short"></div><div class="skeleton skeleton-text"></div><div class="skeleton skeleton-text med"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text short"></div><div class="skeleton skeleton-text"></div><div class="skeleton skeleton-text med"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text short"></div><div class="skeleton skeleton-text"></div><div class="skeleton skeleton-text med"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text short"></div><div class="skeleton skeleton-text"></div><div class="skeleton skeleton-text med"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text short"></div><div class="skeleton skeleton-text"></div><div class="skeleton skeleton-text med"></div></div>
+      </div>
+
+      <!-- Error State Card (Fallback if API fails with Retry button) -->
+      <div class="api-error-card" id="collectionError" style="display: none;">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h3>Unable to Connect to Atelier API</h3>
+        <p>We are experiencing a temporary connection hiccup fetching the latest boutique catalog. Please try reconnecting.</p>
+        <button class="btn btn-primary" id="retryFetchBtn">
+          <i class="fa-solid fa-rotate-right"></i> Try Again
+        </button>
+      </div>
+
+      <!-- Main Collection Product Grid -->
+      <div class="product-grid" id="collectionGrid" style="display: none;">
+        <!-- Populated via JavaScript Fetch API -->
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-wrap">
+        <button class="btn btn-secondary" id="loadMoreBtn" style="display: none;">
+          <span>Discover More Pieces</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       13. SPECIAL OFFERS (3 PROMOTIONAL BANNERS + COUNTDOWN)
+       ========================================================================= -->
+  <section class="offers-section" id="offers">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">LIMITED INVITATIONS</span>
+        <h2 class="section-title">Special Boutique Offers</h2>
+        <p class="section-subtitle">
+          Exclusive seasonal privileges, bespoke sales, and VIP incentives crafted for our fashion patrons.
+        </p>
+        <div class="categories-action-wrap">
+          <button class="arrange-btn" id="splitJoinOffersBtn" title="Separate into 4 Pieces & Join Smoothly">
+            <i class="fa-solid fa-puzzle-piece"></i> Separate &amp; Join Pieces
+          </button>
+        </div>
+      </div>
+
+      <div class="offers-grid">
+        <!-- Offer 1: Up to 50% OFF Flash Sale with Live Countdown -->
+        <div class="offer-card large">
+          <div class="offer-split-image" id="offerSplit1">
+            <img src="assets/offer-sale.webp" class="offer-piece piece-tl" alt="Flash Sale Piece Top-Left" loading="lazy" />
+            <img src="assets/offer-sale.webp" class="offer-piece piece-tr" alt="Flash Sale Piece Top-Right" loading="lazy" />
+            <img src="assets/offer-sale.webp" class="offer-piece piece-bl" alt="Flash Sale Piece Bottom-Left" loading="lazy" />
+            <img src="assets/offer-sale.webp" class="offer-piece piece-br" alt="Flash Sale Piece Bottom-Right" loading="lazy" />
+            <span class="split-seam split-seam-h"></span>
+            <span class="split-seam split-seam-v"></span>
+          </div>
+          <div class="offer-overlay">
+            <span class="offer-tag">FLASH ATELIER SALE</span>
+            <h3 class="offer-title">Up to 50% OFF Spring Couture</h3>
+            <p class="offer-desc">
+              Curated silk blouses, fluid trousers, and evening tailoring available at exclusive mid-season privileges.
+            </p>
+            <!-- Real-time Countdown Timer -->
+            <div class="countdown-timer">
+              <div class="time-box">
+                <div class="time-val" id="offerDays">01</div>
+                <div class="time-label">Days</div>
+              </div>
+              <div class="time-box">
+                <div class="time-val" id="offerHours">14</div>
+                <div class="time-label">Hours</div>
+              </div>
+              <div class="time-box">
+                <div class="time-val" id="offerMinutes">36</div>
+                <div class="time-label">Mins</div>
+              </div>
+              <div class="time-box">
+                <div class="time-val" id="offerSeconds">48</div>
+                <div class="time-label">Secs</div>
+              </div>
+            </div>
+            <a href="#collection" class="btn btn-primary" style="width: fit-content;">
+              <span>Claim Privilege</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Offer 2: New Season Collection -->
+        <div class="offer-card">
+          <div class="offer-split-image" id="offerSplit2">
+            <img src="assets/offer-new-season.webp" class="offer-piece piece-tl" alt="New Season Piece Top-Left" loading="lazy" />
+            <img src="assets/offer-new-season.webp" class="offer-piece piece-tr" alt="New Season Piece Top-Right" loading="lazy" />
+            <img src="assets/offer-new-season.webp" class="offer-piece piece-bl" alt="New Season Piece Bottom-Left" loading="lazy" />
+            <img src="assets/offer-new-season.webp" class="offer-piece piece-br" alt="New Season Piece Bottom-Right" loading="lazy" />
+            <span class="split-seam split-seam-h"></span>
+            <span class="split-seam split-seam-v"></span>
+          </div>
+          <div class="offer-overlay">
+            <span class="offer-tag">NEW SEASON 2026</span>
+            <h3 class="offer-title">The Sartorial Runway Edition</h3>
+            <p class="offer-desc">
+              Impeccably tailored trench coats, fine linen shirts, and cashmere outerwear.
+            </p>
+            <a href="#collection" class="btn btn-white" style="width: fit-content;">
+              <span>Explore Lookbook</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Offer 3: Wide Banner with Voucher Code Copy -->
+      <div class="offer-banner-wide">
+        <div class="offer-split-image" id="offerSplit3">
+          <img src="assets/offer-accessories.webp" class="offer-piece piece-tl" alt="Accessories Privilege Piece Top-Left" loading="lazy" />
+          <img src="assets/offer-accessories.webp" class="offer-piece piece-tr" alt="Accessories Privilege Piece Top-Right" loading="lazy" />
+          <img src="assets/offer-accessories.webp" class="offer-piece piece-bl" alt="Accessories Privilege Piece Bottom-Left" loading="lazy" />
+          <img src="assets/offer-accessories.webp" class="offer-piece piece-br" alt="Accessories Privilege Piece Bottom-Right" loading="lazy" />
+          <span class="split-seam split-seam-h"></span>
+          <span class="split-seam split-seam-v"></span>
+        </div>
+        <div class="offer-overlay">
+          <span class="offer-tag">VIP CODE PRIVILEGE</span>
+          <h3 class="offer-title">Limited-Time Fashion & Fragrance Deals</h3>
+          <p class="offer-desc">
+            Enjoy an additional 30% discount on all artisanal leather handbags, designer sunglasses, and signature French parfums.
+          </p>
+          <div class="promo-code-wrap">
+            <span>Use Voucher:</span>
+            <span class="promo-code">STACKLY30</span>
+            <button class="copy-code-btn" id="copyCouponBtn" title="Copy Promo Code">
+              Copy Code
+            </button>
+          </div>
+          <a href="#collection" class="btn btn-primary" style="width: fit-content;">
+            <span>Shop Accessories Deals</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       14. CUSTOMER TESTIMONIALS (LIVE HORIZONTAL RUNNING MARQUEE)
+       ========================================================================= -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">CLIENT TESTIMONIALS</span>
+        <h2 class="section-title">Words From Our Patrons</h2>
+        <p class="section-subtitle">
+          Hear how Stackly pieces transform wardrobes across Milan, London, Paris, and New York.
+        </p>
+      </div>
+    </div>
+
+    <!-- Live Running Horizontal Track Wrapper -->
+    <div class="testimonials-marquee-wrapper" id="testimonialsMarquee">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <!-- Group 1 -->
+        <div class="marquee-group">
+          <!-- Card 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "Stackly has redefined my wardrobe completely. The drape of the silk trench coat and attention to bespoke seam detailing rival the grand couture houses in Paris."
+            </p>
+            <div class="testimonial-user">
+              <img src="assets/testimonial-1.webp" alt="Sophia Vance" class="user-avatar" loading="lazy" />
+              <div class="user-info">
+                <h5>Sophia Vance</h5>
+                <p>Fashion Director, Milan</p>
+                <span class="verified-tag"><i class="fa-solid fa-badge-check"></i> Verified Patron</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "The tailored menswear blazers fit with razor-sharp precision straight out of the box. Delivery took less than 48 hours to Mayfair, packed in magnificent linen garment bags."
+            </p>
+            <div class="testimonial-user">
+              <img src="assets/testimonial-2.webp" alt="Alexander Wright" class="user-avatar" loading="lazy" />
+              <div class="user-info">
+                <h5>Alexander Wright</h5>
+                <p>Architect & Stylist, London</p>
+                <span class="verified-tag"><i class="fa-solid fa-badge-check"></i> Verified Patron</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "From the exquisite leather hardware on the handbags to the signature fragrance notes, every single order feels like an unboxing ritual. Stackly is truly in a league of its own."
+            </p>
+            <div class="testimonial-user">
+              <img src="assets/testimonial-3.webp" alt="Elena Rostova" class="user-avatar" loading="lazy" />
+              <div class="user-info">
+                <h5>Elena Rostova</h5>
+                <p>Creative Producer, New York</p>
+                <span class="verified-tag"><i class="fa-solid fa-badge-check"></i> Verified Patron</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "The bespoke cashmere outerwear and silk shirts are sartorial masterworks. The fit and finish embody contemporary haute couture with timeless longevity."
+            </p>
+            <div class="testimonial-user">
+              <img src="assets/testimonial-4.webp" alt="Marcus Sterling" class="user-avatar" loading="lazy" />
+              <div class="user-info">
+                <h5>Marcus Sterling</h5>
+                <p>Celebrity Stylist, Paris</p>
+                <span class="verified-tag"><i class="fa-solid fa-badge-check"></i> Verified Patron</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2 (Duplicate for Seamless 100% Infinite Live Loop) -->
+        <div class="marquee-group" aria-hidden="true">
+          <!-- Card 1 Duplicate -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "Stackly has redefined my wardrobe completely. The drape of the silk trench coat and attention to bespoke seam detailing rival the grand couture houses in Paris."
+            </p>
+            <div class="testimonial-user">
+              <img src="assets/testimonial-1.webp" alt="Sophia Vance" class="user-avatar" loading="lazy" />
+              <div class="user-info">
+                <h5>Sophia Vance</h5>
+                <p>Fashion Director, Milan</p>
+                <span class="verified-tag"><i class="fa-solid fa-badge-check"></i> Verified Patron</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 Duplicate -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "The tailored menswear blazers fit with razor-sharp precision straight out of the box. Delivery took less than 48 hours to Mayfair, packed in magnificent linen garment bags."
+            </p>
+            <div class="testimonial-user">
+              <img src="assets/testimonial-2.webp" alt="Alexander Wright" class="user-avatar" loading="lazy" />
+              <div class="user-info">
+                <h5>Alexander Wright</h5>
+                <p>Architect & Stylist, London</p>
+                <span class="verified-tag"><i class="fa-solid fa-badge-check"></i> Verified Patron</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 Duplicate -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "From the exquisite leather hardware on the handbags to the signature fragrance notes, every single order feels like an unboxing ritual. Stackly is truly in a league of its own."
+            </p>
+            <div class="testimonial-user">
+              <img src="assets/testimonial-3.webp" alt="Elena Rostova" class="user-avatar" loading="lazy" />
+              <div class="user-info">
+                <h5>Elena Rostova</h5>
+                <p>Creative Producer, New York</p>
+                <span class="verified-tag"><i class="fa-solid fa-badge-check"></i> Verified Patron</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 Duplicate -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "The bespoke cashmere outerwear and silk shirts are sartorial masterworks. The fit and finish embody contemporary haute couture with timeless longevity."
+            </p>
+            <div class="testimonial-user">
+              <img src="assets/testimonial-4.webp" alt="Marcus Sterling" class="user-avatar" loading="lazy" />
+              <div class="user-info">
+                <h5>Marcus Sterling</h5>
+                <p>Celebrity Stylist, Paris</p>
+                <span class="verified-tag"><i class="fa-solid fa-badge-check"></i> Verified Patron</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Status Indicator -->
+    <div class="container marquee-indicator-container">
+      <div class="marquee-live-indicator">
+        <span class="live-pulse-dot"></span>
+        <span>LIVE RUNNING FEED • HOVER ANY CARD TO PAUSE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       15. NEWSLETTER SUBSCRIPTION
+       ========================================================================= -->
+  <section class="newsletter-section" id="newsletter">
+    <div class="container newsletter-container">
+      <span class="newsletter-tag">THE PRIVATE CIRCLE</span>
+      <h2 class="newsletter-title">Join The Stackly Atelier</h2>
+      <p class="newsletter-desc">
+        Subscribe to receive private invitations to runway previews, seasonal lookbooks, and an exclusive 15% welcome courtesy on your first order.
+      </p>
+
+      <form class="newsletter-form" id="newsletterForm" novalidate>
+        <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Enter your email address..." aria-label="Email address" required />
+        <button type="submit" class="newsletter-btn">
+          <span>Subscribe</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+      <div id="newsletterFeedback" class="newsletter-feedback"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       16. FOOTER DESIGN (4 COLUMNS + CONTACT INFO)
+       ========================================================================= -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Social Links -->
+        <div class="footer-col footer-brand">
+          <img src="assets/stackly_066.webp" alt="Stackly Fashion Boutique" />
+          <p>
+            Stackly is an international luxury fashion boutique curating bespoke contemporary apparel, artisanal leather goods, and refined accessories for the modern connoisseur.
+          </p>
+          <div class="social-links">
+            <a href="#newsletter" class="social-link" data-social="instagram" aria-label="Instagram" title="Stackly on Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#newsletter" class="social-link" data-social="facebook" aria-label="Facebook" title="Stackly on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#newsletter" class="social-link" data-social="x-twitter" aria-label="X Twitter" title="Stackly on X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#newsletter" class="social-link" data-social="linkedin" aria-label="LinkedIn" title="Stackly on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#newsletter" class="social-link" data-social="pinterest" aria-label="Pinterest" title="Stackly on Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links (Smooth Scroll) -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" class="footer-link">Home</a></li>
+            <li><a href="#new-arrivals" class="footer-link">New Arrivals</a></li>
+            <li><a href="#categories" class="footer-link">Categories</a></li>
+            <li><a href="#trending" class="footer-link">Trending</a></li>
+            <li><a href="#collection" class="footer-link">Best Sellers</a></li>
+            <li><a href="#contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Support (Interactive In-Page Modals) -->
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="#contact" class="footer-link" data-policy="contact">Contact Concierge</a></li>
+            <li><a href="#contact" class="footer-link" data-policy="shipping">Shipping Information</a></li>
+            <li><a href="#contact" class="footer-link" data-policy="returns">Returns & Exchanges</a></li>
+            <li><a href="#contact" class="footer-link" data-policy="privacy">Privacy Policy</a></li>
+            <li><a href="#contact" class="footer-link" data-policy="terms">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Store Information -->
+        <div class="footer-col">
+          <h4>Boutique Atelier</h4>
+          <div class="store-info-list">
+            <div class="store-info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <strong>Stackly Flagship Boutique</strong>
+                742 Fifth Avenue, Fashion District, New York, NY 10019
+              </div>
+            </div>
+            <div class="store-info-item">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <strong>Concierge Inquiries</strong>
+                concierge@stacklyboutique.com
+              </div>
+            </div>
+            <div class="store-info-item">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <strong>Direct Line</strong>
+                +1 (800) 782-2559
+              </div>
+            </div>
+            <div class="store-info-item">
+              <i class="fa-solid fa-clock"></i>
+              <div>
+                <strong>Boutique Hours</strong>
+                Mon – Sat: 9:00 AM – 8:00 PM | Sun: 11:00 AM – 6:00 PM
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 STACKLY Boutique. All Rights Reserved. Crafted with passion for modern haute couture.</p>
+        <div class="payment-methods">
+          <a href="#contact" class="payment-link" data-policy="payment" data-payment="Visa" title="Visa - 256-bit Encrypted Checkout" aria-label="Visa Secure Payment"><i class="fa-brands fa-cc-visa"></i></a>
+          <a href="#contact" class="payment-link" data-policy="payment" data-payment="Mastercard" title="Mastercard - Identity Check Protected" aria-label="Mastercard Secure Payment"><i class="fa-brands fa-cc-mastercard"></i></a>
+          <a href="#contact" class="payment-link" data-policy="payment" data-payment="American Express" title="American Express - SafeKey Verified" aria-label="American Express Secure Payment"><i class="fa-brands fa-cc-amex"></i></a>
+          <a href="#contact" class="payment-link" data-policy="payment" data-payment="Apple Pay" title="Apple Pay - Biometric Tokenization" aria-label="Apple Pay Secure Payment"><i class="fa-brands fa-cc-apple-pay"></i></a>
+          <a href="#contact" class="payment-link" data-policy="payment" data-payment="PayPal" title="PayPal - Buyer Protection Guaranteed" aria-label="PayPal Secure Payment"><i class="fa-brands fa-cc-paypal"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- =========================================================================
+       10. PRODUCT DETAILS MODAL (Quick View & Full Specs)
+       ========================================================================= -->
+  <div class="modal-overlay" id="productModalOverlay" aria-modal="true" role="dialog">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="productModalClose" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-body-grid">
+        <!-- Left Column: Large Image & Gallery -->
+        <div class="modal-image-col">
+          <div class="modal-main-image">
+            <img id="modalProductImg" src="assets/product-placeholder.webp" alt="Product Image" />
+          </div>
+        </div>
+
+        <!-- Right Column: Specs, Sizing, Add to Bag -->
+        <div class="modal-info-col">
+          <span class="modal-category-tag" id="modalCategory">Atelier Collection</span>
+          <h2 class="modal-product-title" id="modalTitle">Silk Gown</h2>
+
+          <div class="modal-product-rating">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <span class="rating-value">4.9</span>
+            <span class="rating-count">(38 Verified Reviews)</span>
+          </div>
+
+          <div class="modal-price-row">
+            <span class="modal-current-price" id="modalPriceCurrent">$240.00</span>
+            <span class="modal-original-price" id="modalPriceOriginal">$300.00</span>
+            <span class="modal-discount-tag" id="modalDiscount">-20% OFF</span>
+          </div>
+
+          <p class="modal-desc" id="modalDesc">
+            Crafted from high-grade silk fibers and detailed with delicate bespoke seams, this garment blends effortless drape with architectural structure.
+          </p>
+
+          <!-- Size Selector -->
+          <div class="modal-option-group">
+            <div class="option-label">
+              <span>Select Size:</span>
+              <a href="#contact" data-policy="size-guide" style="font-weight:400; font-size:0.75rem; color:var(--primary-orange);" title="View Atelier Sizing Guide">Size Guide</a>
+            </div>
+            <div class="size-selector">
+              <button class="size-btn" data-size="XS">XS</button>
+              <button class="size-btn" data-size="S">S</button>
+              <button class="size-btn active" data-size="M">M</button>
+              <button class="size-btn" data-size="L">L</button>
+              <button class="size-btn" data-size="XL">XL</button>
+            </div>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="modal-option-group">
+            <div class="option-label">Quantity:</div>
+            <div class="quantity-wrap">
+              <button class="qty-btn" id="modalQtyMinus">-</button>
+              <span class="qty-val" id="modalQtyVal">1</span>
+              <button class="qty-btn" id="modalQtyPlus">+</button>
+            </div>
+          </div>
+
+          <!-- Modal Action Buttons -->
+          <div class="modal-actions">
+            <button class="btn btn-primary modal-add-cart" id="modalAddCartBtn">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span>Add to Shopping Bag</span>
+            </button>
+            <button class="modal-wishlist-toggle" id="modalWishlistBtn" aria-label="Toggle Wishlist" title="Save to Wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+
+          <!-- Guarantees -->
+          <div class="modal-guarantees">
+            <div><i class="fa-solid fa-shield-halved"></i> 100% Authentic Luxury Guarantee</div>
+            <div><i class="fa-solid fa-truck-fast"></i> Complimentary Courier Delivery on Orders > $150</div>
+            <div><i class="fa-solid fa-rotate-left"></i> 30-Day Atelier Returns & Exchanges</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       11. SHOPPING CART DRAWER
+       ========================================================================= -->
+  <div class="drawer-overlay" id="cartDrawerOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag">
+    <div class="drawer-header">
+      <h3>
+        <i class="fa-solid fa-bag-shopping" style="color: var(--primary-orange);"></i>
+        Your Shopping Bag (<span id="cartDrawerCount">0</span>)
+      </h3>
+      <button class="drawer-close-btn" id="cartDrawerClose" aria-label="Close bag">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Meter -->
+    <div class="shipping-meter">
+      <div class="meter-text" id="shippingMeterText">
+        Add <strong>$150.00</strong> more for Complimentary Delivery
+      </div>
+      <div class="meter-bar">
+        <div class="meter-fill" id="shippingMeterFill"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scrollable List -->
+    <div class="drawer-items" id="cartItemsList">
+      <!-- Populated via JavaScript -->
+    </div>
+
+    <!-- Empty Cart State -->
+    <div class="drawer-empty-state" id="cartEmptyState" style="display: none;">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <h4>Your Bag is Empty</h4>
+      <p>Discover our newest arrivals and elevate your wardrobe with bespoke luxury.</p>
+      <button class="btn btn-primary btn-sm" id="continueShoppingBtn">Explore Collection</button>
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="drawer-footer" id="cartFooter">
+      <div class="calc-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="calc-row">
+        <span>Estimated Courier Delivery</span>
+        <span id="cartShipping">FREE</span>
+      </div>
+      <div class="calc-row total">
+        <span>Order Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary checkout-btn" id="checkoutBtn">
+        <span>Proceed to Checkout</span>
+        <i class="fa-solid fa-lock"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       12. WISHLIST DRAWER
+       ========================================================================= -->
+  <div class="drawer-overlay" id="wishlistDrawerOverlay"></div>
+  <aside class="wishlist-drawer" id="wishlistDrawer" aria-label="Saved Wishlist">
+    <div class="drawer-header">
+      <h3>
+        <i class="fa-solid fa-heart" style="color: var(--primary-orange);"></i>
+        Saved Pieces (<span id="wishlistDrawerCount">0</span>)
+      </h3>
+      <button class="drawer-close-btn" id="wishlistDrawerClose" aria-label="Close wishlist">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-items" id="wishlistItemsList">
+      <!-- Populated via JavaScript -->
+    </div>
+
+    <!-- Empty Wishlist State -->
+    <div class="drawer-empty-state" id="wishlistEmptyState" style="display: none;">
+      <i class="fa-regular fa-heart"></i>
+      <h4>Your Wishlist is Empty</h4>
+      <p>Click the heart icon on any piece you love to save it to your private list.</p>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       17. INFORMATIONAL POLICY MODAL
+       ========================================================================= -->
+  <div class="modal-overlay" id="infoModalOverlay" aria-modal="true" role="dialog">
+    <div class="modal-container info-modal-container">
+      <button class="modal-close-btn" id="infoModalClose" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="info-modal-title" id="infoModalTitle">Boutique Policy</h3>
+      <div class="info-modal-content" id="infoModalContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Simulated Checkout Success Modal -->
+  <div class="modal-overlay" id="checkoutModalOverlay" aria-modal="true" role="dialog">
+    <div class="modal-container checkout-modal-container">
+      <div class="success-icon-wrap">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3 class="checkout-modal-title">Thank You For Your Patronage</h3>
+      <span class="order-number" id="checkoutOrderNumber">STK-98241</span>
+      <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem; line-height: 1.6;">
+        Your bespoke order has been confirmed by the Stackly Atelier. A white-glove courier tracking number will be dispatched to your email address shortly.
+      </p>
+      <button class="btn btn-primary" id="checkoutModalClose">
+        <span>Continue Exploring</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Application -->
+  <script src="js/app.js"></script>
+</body>
+</html>
+
