@@ -164,6 +164,38 @@
       mobileOverlay.addEventListener('click', () => toggleMobileMenu(false));
     }
 
+    // =========================================================================
+    // RESPONSIVE STATE MANAGEMENT: AUTO-CLOSE HAMBURGER & RESET ON DESKTOP
+    // =========================================================================
+    const desktopMediaQuery = window.matchMedia('(min-width: 993px)');
+
+    function checkResponsiveMenuState(isDesktop) {
+      if (isDesktop) {
+        // Automatically close mobile sidebar, remove dark overlay, reset active state & restore body scroll
+        toggleMobileMenu(false);
+      }
+    }
+
+    // 1. Instant matchMedia change listener for clean breakpoint boundary crossing
+    if (desktopMediaQuery.addEventListener) {
+      desktopMediaQuery.addEventListener('change', (e) => checkResponsiveMenuState(e.matches));
+    } else if (desktopMediaQuery.addListener) {
+      desktopMediaQuery.addListener((e) => checkResponsiveMenuState(e.matches));
+    }
+
+    // 2. Window resize listener with immediate boundary check and debounced safeguard
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      const isDesktop = window.innerWidth > 992;
+      if (isDesktop && mobileNav && (mobileNav.classList.contains('open') || (mobileOverlay && mobileOverlay.classList.contains('open')))) {
+        checkResponsiveMenuState(true);
+      }
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        checkResponsiveMenuState(window.innerWidth > 992);
+      }, 50);
+    }, { passive: true });
+
     // Smooth Scroll for Nav Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -205,6 +237,21 @@
             }
           });
         }
+      });
+    }
+
+    // Stackly Footer Brand Logo - Interactive Return to Top & Glow Pulse
+    const footerLogo = document.getElementById('footerLogoBtn');
+    if (footerLogo) {
+      footerLogo.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMobileMenu(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        footerLogo.classList.remove('pulsing');
+        void footerLogo.offsetWidth;
+        footerLogo.classList.add('pulsing');
+        showToast('Returning to Stackly Homepage ✨', 'fa-solid fa-gem');
       });
     }
   }
@@ -425,12 +472,18 @@
     }
 
     container.innerHTML = STATE.trending
+      .slice(0, 8)
       .map((p, idx) => {
         const badge = idx % 2 === 0 ? 'BESTSELLER' : 'HOT PICK';
         const badgeClass = idx % 2 === 0 ? 'badge-bestseller' : 'badge-discount';
-        return createProductCardHTML(p, badge, badgeClass);
+        return createProductCardHTML(p, badge, badgeClass, idx + 1);
       })
       .join('');
+
+    // Trigger one-by-one arrange animation smoothly
+    container.classList.remove('arranging-one-by-one');
+    void container.offsetWidth; // Force DOM reflow
+    container.classList.add('arranging-one-by-one');
   }
 
   function applyCollectionFilters() {
@@ -605,7 +658,7 @@
       arrangeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         triggerArrangement();
-        showToast('Categories Rotated & Arranged to Position! ✨', 'fa-solid fa-arrows-rotate');
+        showToast('Categories Rotated & Arranged to Position! ✨', 'fa-solid fa-wand-magic-sparkles');
       });
     }
 
@@ -663,6 +716,43 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             triggerShuffle();
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(section);
+    }
+  }
+
+  // =========================================================================
+  // 8C. TRENDING THIS SEASON 8-IMAGE ONE-BY-ONE ARRANGE ANIMATION
+  // =========================================================================
+  function initTrendingArrange() {
+    const section = document.getElementById('trending');
+    const grid = document.getElementById('trendingGrid');
+    const arrangeBtn = document.getElementById('arrangeTrendingBtn');
+
+    function triggerTrendingArrange() {
+      if (!grid) return;
+      grid.classList.remove('arranging-one-by-one');
+      void grid.offsetWidth; // Force DOM reflow
+      grid.classList.add('arranging-one-by-one');
+    }
+
+    if (arrangeBtn) {
+      arrangeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        triggerTrendingArrange();
+        showToast('8 Trending Pieces Arranging One by One Smoothly! ✨', 'fa-solid fa-layer-group');
+      });
+    }
+
+    // Trigger on scroll into view with IntersectionObserver
+    if ('IntersectionObserver' in window && section) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && grid) {
+            triggerTrendingArrange();
           }
         });
       }, { threshold: 0.2 });
@@ -1755,6 +1845,7 @@
     initNavigation();
     initCategoryClicks();
     initNewArrivalsShuffle();
+    initTrendingArrange();
     initCollectionControls();
     initProductModal();
     initCartDrawer();
